@@ -5,14 +5,12 @@ reader = fs.createReadStream('../injector.js', {
     highWaterMark: 1024*1024
 });
  
-reader.pipe(fs.createWriteStream('../trash.txt')).on('data', function (chunk) {
- 
-    console.log(chunk.toString());
- 
-});
+// pipe doesnot return a this object;;;;; need to apply it on reader
+// reader.pipe(fs.createWriteStream('../trash.txt'))
 
 
-
-/** 
-* cron jobs with a heap size of 6 GB; B2B
-*/
+// reader.on('data', chunk=>{
+//     console.log("chuunk", chunk);
+// }).on('end', ()=>{
+//     console.log("end")
+// })
